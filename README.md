@@ -1,6 +1,18 @@
 # APIColetaPacotes
 Contato MOTORISTA/TRANSPORTADORA
 
+
+============================================================
+
+To Start:
+
+`npm init`
+
+`npm install`
+
+`node .\src\index.js`
+
+============================================================
 - TRANSPORTADORA REGISTRA 
 	- CNPJ
 	- SENHA
