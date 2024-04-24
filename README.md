@@ -1,7 +1,7 @@
 # APIColetaPacotes
 Contato MOTORISTA/TRANSPORTADORA
 
-TRANSPORTADORA REGISTRA quantidade de PACOTES disponíveis para entrega
+- TRANSPORTADORA REGISTRA quantidade de PACOTES disponíveis para entrega
 	- Quantidade/Cidade/Fragil/Tipo/Tamanho
 
 - MOTORISTA se cadastra (tipo uber)
