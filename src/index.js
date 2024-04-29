@@ -1,12 +1,15 @@
 const express = require('express')
 const mongoose = require('mongoose');
 
+/////////////// APP CONFIG ///////////////
+
 const app = express()
 app.use(express.json())
 const port = 3000
 
-//MongoDB Connection:
 mongoose.connect('mongodb+srv://guilhermeswrt:jbmyNyYLmpva8T93@apicoletapacote.dt5dxmb.mongodb.net/?retryWrites=true&w=majority&appName=APIColetaPacote');
+
+/////////////// MODEL ///////////////
 
 const Package = mongoose.model('Package', {
     name: String,
@@ -31,6 +34,8 @@ const Delivery = mongoose.model('Delivery', {
     actingHour: String
 });
 
+/////////////// GET ///////////////
+
 app.get ('/package', async (req, res) => {
     const package = await Package.find()
     res.send(package)
@@ -45,6 +50,8 @@ app.get ('/delivery', async (req, res) => {
     const package = await Delivery.find()
     res.send(package)
 })
+
+/////////////// POST ///////////////
 
 app.post("/package/create", async (req, res) => {
     const package = new Package({
@@ -84,6 +91,8 @@ app.post("/delivery/create", async (req, res) => {
     res.send(delivery)
 })
 
+/////////////// DELETE ///////////////
+
 app.delete("/package/delete/:id", async(req, res) => {
     const package = await Package.findByIdAndDelete(req.params.id, {new: true})
     res.send(package)
@@ -99,9 +108,7 @@ app.delete("/delivery/delete/:id", async(req, res) => {
     res.send(package)
 })
 
-app.listen(port, () =>{
-    console.log('app runnig')
-})
+/////////////// PUT ///////////////
 
 app.put("/package/update/:id", async(req, res) => {
     const package = await Package.findByIdAndUpdate(
@@ -149,3 +156,10 @@ app.put("/delivery/update/:id", async(req, res) => {
 
     res.send(package)
 })
+
+/////////////// APP STATUS ///////////////
+
+app.listen(port, () =>{
+    console.log('app runnig')
+})
+
